@@ -1,0 +1,145 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/products/",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ],
+      "UpstreamPathTemplate": "/api/products/",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "Username": "Claims[Username] > value",
+        "JobTitle": "Claims[JobTitle] > value"
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/products/{id}/",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ],
+      "UpstreamPathTemplate": "/api/products/{id}/",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "Username": "Claims[Username] > value",
+        "JobTitle": "Claims[JobTitle] > value"
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/suppliers/",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5004
+        }
+      ],
+      "UpstreamPathTemplate": "/api/suppliers/",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "Username": "Claims[Username] > value",
+        "JobTitle": "Claims[JobTitle] > value"
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/suppliers/{id}/",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ],
+      "UpstreamPathTemplate": "/api/suppliers/{id}/",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "Username": "Claims[Username] > value",
+        "JobTitle": "Claims[JobTitle] > value"
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/users/",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5005
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "Username": "Claims[Username] > value",
+        "JobTitle": "Claims[JobTitle] > value"
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/users/{id}/",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/{id}/",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "Username": "Claims[Username] > value",
+        "JobTitle": "Claims[JobTitle] > value"
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/tokens/",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/api/tokens/",
+      "UpstreamHttpMethod": [ "Post" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5001/"
+  }
+}
