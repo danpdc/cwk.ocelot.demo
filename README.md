@@ -18,6 +18,8 @@ The solution is configured to run all services when debugging. For each service,
 
 The role of the AuthService is simply to provide JWT tokens. Ocelot validates those tokens based on the specified configuration. 
 
+NOTE: before calling the service endpoints you should first get an access token by making a POST request to api/tokens with a body consisting of "username" and "role". Then add that token as Authorization header to all subsequent requests. If calling the service endpoints without token you'll get a 401 repsoinse, which is expected since the API gateway is configured to check if call are authorized or not
+
 # Ocelot features showcased here
 1. Configuration
 2. Routing
