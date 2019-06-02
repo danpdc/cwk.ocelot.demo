@@ -1,0 +1,51 @@
+version: '3.7'
+services:
+  auth:
+    image: cwk.ocelot.demo/auth:local
+    build:
+      context: .
+      args:
+        PROJECT_TO_PUBLISH: Cwk.Ocelot.Demo.Auth/Cwk.Ocelot.Demo.Auth.csproj
+    command: dotnet Cwk.Ocelot.Demo.Auth.dll
+
+  gateway:
+    image: cwk.ocelot.demo/gateway:local
+    build:
+      context: .
+      dockerfile: Dockerfile.gateway
+      args:
+        PROJECT_TO_PUBLISH: Cwk.Ocelot.Demo.Gateway/Cwk.Ocelot.Demo.Gateway.csproj
+    ports:
+      - "5000:80"
+    environment:
+      ASPNETCORE_ENVIRONMENT: docker
+    command: dotnet Cwk.Ocelot.Demo.Gateway.dll
+    depends_on:
+      - auth
+      - products
+      - suppliers
+      - users
+
+  products:
+    image: cwk.ocelot.demo/products:local
+    build:
+      context: .
+      args:
+        PROJECT_TO_PUBLISH: Cwk.Ocelot.Demo.Products/Cwk.Ocelot.Demo.Products.csproj
+    command: dotnet Cwk.Ocelot.Demo.Products.dll
+
+  suppliers:
+    image: cwk.ocelot.demo/suppliers:local
+    build:
+      context: .
+      args:
+        PROJECT_TO_PUBLISH: Cwk.Ocelot.Demo.Suppliers/Cwk.Ocelot.Demo.Suppliers.csproj
+    command: dotnet Cwk.Ocelot.Demo.Suppliers.dll
+
+  users:
+    image: cwk.ocelot.demo/users:local
+    build:
+      context: .
+      args:
+        PROJECT_TO_PUBLISH: Cwk.Ocelot.Demo.Users/Cwk.Ocelot.Demo.Users.csproj
+    command: dotnet Cwk.Ocelot.Demo.Users.dll
