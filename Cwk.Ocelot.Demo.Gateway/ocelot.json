@@ -69,7 +69,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5003
+          "Port": 5004
         }
       ],
       "UpstreamPathTemplate": "/api/suppliers/{id}/",
@@ -111,7 +111,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5003
+          "Port": 5005
         }
       ],
       "UpstreamPathTemplate": "/api/users/{id}/",
