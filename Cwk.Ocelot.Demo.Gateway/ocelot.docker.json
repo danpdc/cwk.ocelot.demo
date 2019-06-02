@@ -137,6 +137,19 @@
       ],
       "UpstreamPathTemplate": "/api/tokens/",
       "UpstreamHttpMethod": [ "Post" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/favicon.ico",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "static",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/favicon.ico",
+      "UpstreamHttpMethod": [ "Get" ]
     }
   ],
   "GlobalConfiguration": {
