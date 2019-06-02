@@ -56,3 +56,14 @@ services:
       context: Cwk.Ocelot.Demo.Static-Bench
     ports:
       - "5001:80"
+
+  benchmark:
+    image: cwk.ocelot.demo/benchmark:local
+    build:
+      dockerfile: Dockerfile.benchmark
+      context: .
+      args:
+        PROJECT_TO_PUBLISH: Cwk.Ocelot.Demo.Benchmark/Cwk.Ocelot.Demo.Benchmark.csproj
+    depends_on:
+      - static
+      - gateway
