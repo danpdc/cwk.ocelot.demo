@@ -49,3 +49,10 @@ services:
       args:
         PROJECT_TO_PUBLISH: Cwk.Ocelot.Demo.Users/Cwk.Ocelot.Demo.Users.csproj
     command: dotnet Cwk.Ocelot.Demo.Users.dll
+
+  static:
+    image: cwk.ocelot.demo/static:local
+    build:
+      context: Cwk.Ocelot.Demo.Static-Bench
+    ports:
+      - "5001:80"
