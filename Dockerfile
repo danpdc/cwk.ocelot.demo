@@ -1,0 +1,27 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview5-alpine as builder
+
+RUN apk add bash
+
+WORKDIR /app
+
+COPY cwk.ocelot.demo.sln move-project-files.sh ./
+
+COPY **/*.csproj ./
+
+RUN ./move-project-files.sh .
+
+RUN dotnet restore cwk.ocelot.demo.sln
+
+COPY . ./
+RUN dotnet build --no-restore -c Release cwk.ocelot.demo.sln
+
+ARG PROJECT_TO_PUBLISH
+RUN dotnet publish --no-build -c Release ${PROJECT_TO_PUBLISH} -o /out
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0.0-preview5-alpine
+
+WORKDIR /app
+
+COPY --from=builder /out .
+
+CMD [ "true" ]

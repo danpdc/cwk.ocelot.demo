@@ -2,11 +2,11 @@
   "ReRoutes": [
     {
       "DownstreamPathTemplate": "/api/products/",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5003
+          "Host": "products",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/products/",
@@ -23,11 +23,11 @@
 
     {
       "DownstreamPathTemplate": "/api/products/{id}/",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5003
+          "Host": "products",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/products/{id}/",
@@ -44,11 +44,11 @@
 
     {
       "DownstreamPathTemplate": "/api/suppliers/",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5004
+          "Host": "suppliers",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/suppliers/",
@@ -65,11 +65,11 @@
 
     {
       "DownstreamPathTemplate": "/api/suppliers/{id}/",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5004
+          "Host": "suppliers",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/suppliers/{id}/",
@@ -86,11 +86,11 @@
 
     {
       "DownstreamPathTemplate": "/api/users/",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5005
+          "Host": "users",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/users/",
@@ -107,11 +107,11 @@
 
     {
       "DownstreamPathTemplate": "/api/users/{id}/",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5005
+          "Host": "users",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/users/{id}/",
@@ -128,15 +128,28 @@
 
     {
       "DownstreamPathTemplate": "/api/tokens/",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5002
+          "Host": "auth",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/api/tokens/",
       "UpstreamHttpMethod": [ "Post" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/favicon.ico",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "static",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/favicon.ico",
+      "UpstreamHttpMethod": [ "Get" ]
     }
   ],
   "GlobalConfiguration": {
